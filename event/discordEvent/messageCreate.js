@@ -19,6 +19,7 @@ module.exports = {
 		/* wait for user to ping bot to get args*/
 		
 		try {
+			if (message.author.bot) return
 			/*
 			const regex = new RegExp(/^a...s$/);
 			console.log(regex.test('alias')); //
@@ -39,22 +40,17 @@ module.exports = {
 					langMap.set(key, value); // Add the entry to the Map
 
 				})
-				if (hasRegex)
-				{ 
+				if (hasRegex){ 
 					let lang = (langMap.get(hasRegex[1]))
 					let code = hasRegex[2]
+					/* pass code to toAPI func*/
 					toAPI(lang , code)
-
 				}
-				/* pass code to toAPI func*/
 			}
-			else{
+			else if(MentionBot) 
+				toDiscordChat("**Please use proper MARKDOWN and mention the bot**")
 				return;
-			}
-
-
-
-			//todiscord ?
+		
 		} catch (error) {
 			console.log(error);
 		}
