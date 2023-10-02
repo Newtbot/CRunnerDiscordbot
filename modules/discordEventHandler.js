@@ -19,11 +19,11 @@ class DiscordEventHandler {
       const event = require(path.join(eventsPath, file));
       if (event.name && event.execute) {
         if (event.name === 'messageCreate') {
-          client.on(event.name, (message, ...args) => event.execute(this.client, message, ...args)); // Pass the 'mcBot' instance and message here
+          client.on(event.name, (message,  ...args) => event.execute(message , client , ...args));
         } else {
           client.on(event.name, (...args) => event.execute(client, ...args)); // Pass the 'client' object for other events
         }
-        //console.log(`Loaded event ${event.name}`);
+        console.log(`Loaded event ${event.name}`);
       }
       if (event.once) {
         client.once(event.name, (...args) => event.execute(client, ...args)); // Pass the 'client' object here for once events
