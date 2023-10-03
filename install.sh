@@ -23,8 +23,8 @@ touch .env
 #fill .env file accordingly
 
 #creating service file
-wget -q https://raw.githubusercontent.com/theta42/proxy/master/ops/proxy.service -O /etc/systemd/system/proxy.service
-#fill services file accordingly to sample 
+wget -q https://github.com/Newtbot/CRunnerDiscordbot/blob/main/CRunnerDiscordBot.service -O /etc/systemd/system/CRunnerDiscordBot.service
+#fill services file accordingly to sample (optional pls check directory)
 
 #start service file
 systemctl start <your_choice>.service
