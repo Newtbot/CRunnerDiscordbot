@@ -21,14 +21,6 @@ module.exports = {
 			option.setName("argument").setDescription("Code to run")
 		),
 	async execute(interaction) {
-		//await interaction.reply("**Will run code in the future**");
-		/* curl https://dev.crunner.vm42.us/ -X POST -d '{"code": "echo 'hi'"}' */
-
-		/* To do 
-        1) add options for programming options
-        2) pass args accordingly
-        */
-
 		/*  
         cHJpbnQoImhlbGxvIG5vb3QiKQo=
         you take the base 64, and the python string
@@ -58,8 +50,28 @@ module.exports = {
 			await interaction.reply("```\n" + decode + "\n```");
 
 			//await
-		} catch (error) {
-			console.log(error);
+		} catch(error){
+			if (error.response)
+			{
+				console.log(error.response.data); //html output
+				console.log(error.response.status); //status code 
+				console.log(error.response.headers); //http status header
+				toDiscordChat("Error Code: " + error.response.status)
+				toDiscordChat(error.response.statusText)
+	
+			}
+			else if (error.request) {
+				// The request was made but no response was received
+				// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+				// http.ClientRequest in node.js
+				console.log(error.request);
+				toDiscordChat(error.request)
+			}
+			else{
+				console.log(error)
+				toDiscordChat(error)
+			}
+	
 		}
-	},
+	}
 };

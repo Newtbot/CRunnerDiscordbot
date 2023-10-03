@@ -27,9 +27,7 @@ module.exports = {
 			const codeBlockRegex = /```(\w+)\n([\s\S]+?)\n```/;
 			const hasRegex = codeBlockRegex.exec(message.content);
 			const MentionBot = message.mentions.has(client.user)
-			message = toString(message)
-			let messagesArray = message.match(/```(?<code>.*?)```/gs);
-			console.log(messagesArray)
+
 			
 			if (hasRegex && MentionBot){
 				//console.log(hasRegex[1]) //py
@@ -43,12 +41,12 @@ module.exports = {
 					langMap.set(key, value); // Add the entry to the Map
 
 				})
-				if (hasRegex){ 
+				
 					let lang = (langMap.get(hasRegex[1]))
 					let code = hasRegex[2]
 					/* pass code to toAPI func*/
 					toAPI(lang , code)
-				}
+				
 			}
 			else if(MentionBot) 
 				toDiscordChat("**Please use proper MARKDOWN and mention the bot**")
