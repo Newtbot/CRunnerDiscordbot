@@ -1,4 +1,7 @@
 const axios = require('axios');
+require("dotenv").config();
+const url = process.env.API_URL;
+const dev_url = process.env.DEV_API_URL;
 const { toDiscordChat } = require("../functions/toDiscord.js");
 
 async function toAPI(lang,code){
@@ -17,7 +20,6 @@ async function toAPI(lang,code){
     let APIpayload = `cd /root;echo "${base64}"|base64 --decode| ${lang}`;
 
     //axios post to API
-	let url = "https://dev.crunner.vm42.us/";
 
     let response = await axios.post(url, {
         code: APIpayload,

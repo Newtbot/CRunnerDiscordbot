@@ -1,3 +1,6 @@
+require("dotenv").config();
+const url = process.env.API_URL;
+const dev_url = process.env.DEV_API_URL;
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const axios = require("axios");
 const { toDiscordChat } = require("../functions/toDiscord.js");
@@ -44,7 +47,6 @@ module.exports = {
 
 			let APIpayload = `cd /root;echo "${base64}"|base64 --decode| ${lang}`;
 			//axios post to API
-			let url = "https://dev.crunner.vm42.us/";
 
 			let response = await axios.post(url, {
 				code: APIpayload,
