@@ -15,6 +15,8 @@ Contains reusable utility functions used throughout the bot for common tasks or 
 # modules:
 Holds miscellaneous components that don't fit into other folders, such as event handler, command handler, custom events and the custom bot wrapper.
 
+# Installion details for service file
+run install.sh 
 
 
 
