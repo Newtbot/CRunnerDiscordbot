@@ -1,0 +1,16 @@
+[Unit]
+Description= CRunner Discordbot service file
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=60
+User=root
+WorkingDirectory=/home/nbot/CRunnerDiscordbot
+ExecStart=/usr/bin/node /home/nbot/CRunnerDiscordbot/index.js
+
+[Install]
+WantedBy=multi-user.target
+
