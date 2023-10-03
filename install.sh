@@ -27,8 +27,8 @@ wget -q https://github.com/Newtbot/CRunnerDiscordbot/blob/main/CRunnerDiscordBot
 #fill services file accordingly to sample (optional pls check directory)
 
 #start service file
-systemctl start <your_choice>.service
-systemctl enable <your_choice>.service
+systemctl start CrunnerDiscordBot.service
+systemctl enable CrunnerDiscordBot.service
 
 
 
