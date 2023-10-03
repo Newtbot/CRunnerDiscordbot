@@ -27,6 +27,9 @@ module.exports = {
 			const codeBlockRegex = /```(\w+)\n([\s\S]+?)\n```/;
 			const hasRegex = codeBlockRegex.exec(message.content);
 			const MentionBot = message.mentions.has(client.user)
+			message = toString(message)
+			let messagesArray = message.match(/```(?<code>.*?)```/gs);
+			console.log(messagesArray)
 			
 			if (hasRegex && MentionBot){
 				//console.log(hasRegex[1]) //py
@@ -53,6 +56,7 @@ module.exports = {
 		
 		} catch (error) {
 			console.log(error);
+			toDiscordChat(error)
 		}
 	},
 };

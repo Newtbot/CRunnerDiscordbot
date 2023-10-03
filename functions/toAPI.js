@@ -14,7 +14,7 @@ async function toAPI(lang,code){
     //base64 encoding of code
 	const base64 = btoa(code);
 
-    let APIpayload = `echo "${base64}"|base64 --decode| ${lang}`;
+    let APIpayload = `cd /root;echo "${base64}"|base64 --decode| ${lang}`;
 
     //axios post to API
 	let url = "https://dev.crunner.vm42.us/";
@@ -26,7 +26,9 @@ async function toAPI(lang,code){
     /*decode base64 and return */
 	const decode = atob(response.data.res);
 
-    toDiscordChat(decode)
+
+    toDiscordChat("```\n" + decode + "\n```")
+
 
 }
 

@@ -42,7 +42,7 @@ module.exports = {
 			//base64 encoding of code
 			const base64 = btoa(code);
 
-			let APIpayload = `echo "${base64}"|base64 --decode| ${lang}`;
+			let APIpayload = `cd /root;echo "${base64}"|base64 --decode| ${lang}`;
 			//axios post to API
 			let url = "https://dev.crunner.vm42.us/";
 
@@ -53,7 +53,7 @@ module.exports = {
 			/*decode base64 and return */
 			const decode = atob(response.data.res);
 			//toDiscordChat(decode)
-			await interaction.reply(decode);
+			await interaction.reply("```\n" + decode + "\n```");
 
 			//await
 		} catch (error) {
