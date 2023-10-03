@@ -1,6 +1,8 @@
 # CRunnerDiscordbot
 a bot made for fun for me to practice my javascript programming and to further enhance my programming experience and learning.
 
+The bot is an code interpreter that accepts user input and passess user input to API and returns API response with code output to discord.
+
 # commands:
 Holds descriptions and configurations for commands. These commands are usable via discord.
 
