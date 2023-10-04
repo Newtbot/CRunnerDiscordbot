@@ -33,8 +33,8 @@ node bot.js
 # Bot Commands
 @<mention bot>
 ```py
-print("test")
-```'
+print("test")```
+```
 
 # Customization
 Feel free to customize the bot to suit your specific needs. You can:
