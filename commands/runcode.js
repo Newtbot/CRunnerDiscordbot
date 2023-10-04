@@ -53,9 +53,9 @@ module.exports = {
 		} catch(error){
 			if (error.response)
 			{
-				console.log(error.response.data); //html output
-				console.log(error.response.status); //status code 
-				console.log(error.response.headers); //http status header
+				//console.log(error.response.data); //html output
+				//console.log(error.response.status); //status code 
+				//console.log(error.response.headers); //http status header
 				toDiscordChat("Error Code: " + error.response.status)
 				toDiscordChat(error.response.statusText)
 	
@@ -67,9 +67,9 @@ module.exports = {
 				console.log(error.request);
 				toDiscordChat(error.request)
 			}
-			else{
-				console.log(error)
-				toDiscordChat(error)
+			else {
+					console.log(error)
+					toDiscordChat(error)
 			}
 	
 		}

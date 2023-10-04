@@ -2,7 +2,11 @@ const axios = require('axios');
 require("dotenv").config();
 const url = process.env.API_URL;
 const dev_url = process.env.DEV_API_URL;
+const web_url = process.env.WEB_URL;
 const { toDiscordChat } = require("../functions/toDiscord.js");
+const { toWeb } = require("../functions/toWeb.js");
+
+
 
 async function toAPI(lang,code){
     /*  
@@ -30,16 +34,25 @@ async function toAPI(lang,code){
     if (decode.includes("<@745387617239040001>")){
         toDiscordChat(decode)
     }
-    else{
+    else if (decode.length > 1950)
+    {
+        let key = toWeb(decode)
+        toDiscordChat(web_url + key )
+    }
+    else if (decode){
     toDiscordChat("```\n" + decode + "\n```")
+    }
+    //empty res 
+    else{
+        toDiscordChat("```\n" + "empty output, but do not have any errors to report." + "\n```")
     }
     }
     catch(error){
         if (error.response)
         {
-            console.log(error.response.data); //html output
-            console.log(error.response.status); //status code 
-            console.log(error.response.headers); //http status header
+            //console.log(error.response.data); //html output
+            //console.log(error.response.status); //status code 
+            //console.log(error.response.headers); //http status header
             toDiscordChat("Error Code: " + error.response.status)
             toDiscordChat(error.response.statusText)
 
@@ -49,16 +62,14 @@ async function toAPI(lang,code){
             // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
             // http.ClientRequest in node.js
             console.log(error.request);
+            console.log(error.request);
             toDiscordChat(error.request)
         }
-        else{
-            console.log(error)
-            toDiscordChat(error)
+        else {
+                console.log(error)
+                toDiscordChat(error)
         }
-
     }
-
-
 }
 
 
