@@ -1,6 +1,6 @@
 require("dotenv").config();
-const channelID = process.env.CHANNEL_ID;
-const { toDiscordChat } = require("../../functions/toDiscord.js");
+const channel = process.env.CHANNEL_ID;
+const { toDiscordChat , toReplyUser} = require("../../functions/toDiscord.js");
 const { toAPI } = require("../../functions/toAPI.js");
 
 const LangMAP = [
@@ -38,20 +38,27 @@ module.exports = {
 				const langMap = new Map();
 
 				LangMAP.forEach(entry => {
-					const key = Object.keys(entry)[0]
-					const value = entry[key]; // Get the corresponding value
+					const key = Object.keys(entry)[0] //py
+					const value = entry[key]; // Get the corresponding value accordingly like py -> python3
 					langMap.set(key, value); // Add the entry to the Map
 
 				})
 				
-					let lang = (langMap.get(hasRegex[1]))
-					let code = hasRegex[2]
+					let lang = (langMap.get(hasRegex[1])) //python3
+					let code = hasRegex[2] //user code
 					/* pass code to toAPI func*/
-					toAPI(lang , code)
-				
+					// passess message.id
+					let messageID = message.id;
+					toAPI(lang , code , messageID)
+					
+
+
+
+			
 			}
 			else if(MentionBot) 
-				toDiscordChat("**Please use proper MARKDOWN and mention the bot**")
+				//toDiscordChat("**Please use proper MARKDOWN and mention the bot**")
+				toReplyUser("**Please use proper MARKDOWN and mention the bot**" , message.id)
 				return;
 		
 		} catch (error) {

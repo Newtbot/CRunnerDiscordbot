@@ -6,6 +6,7 @@ const port = 3000;
 const outputMap = {};
 
 function toWeb(decode) {
+	//random id generator
 	let random_output_id = Math.random().toString(36).substring(2, 12);
 	setTimeout(
 		() => {
@@ -17,7 +18,7 @@ function toWeb(decode) {
 	outputMap[random_output_id] = decode
 	return random_output_id;
 }
-/* API PATH*/
+/* API PATH for GET*/
 app.get("/output/:random_output_id", (req, res) => {
 	if (!outputMap[req.params.random_output_id]) {
 		return res.send("404 - no id found");
@@ -29,7 +30,7 @@ app.get("/output/:random_output_id", (req, res) => {
 //http://localhost/output/<random_string> for testing
 
 app.listen(port, () => {
-	console.log(`Example app listening on port ${port}`);
+	console.log(`app listening on port ${port}`);
 });
 
 module.exports = { toWeb };

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const serverID = process.env.GUILD_ID;
 const channel_ID = process.env.CHANNEL_ID;
+const e = require('express');
 const { client } = require('../modules/discordBot');
 
 
@@ -32,6 +33,7 @@ async function sendEmbed(msg) {
     console.log(error);
   }
 }
+
 
 function toDiscordChat(msg) {
   let fullmsg;
@@ -76,5 +78,31 @@ function toDiscordChat(msg) {
     });
   }
 }
+//takes decode and message.id 
+/*Needs message.id and channel and decode */
+/*
+					const channel = await client.channels.fetch('1155491452009320570');
+					channel.send({ content: 'content', reply: { messageReference: message.id }}); // Message id 
+*/
+async function toReplyUser(message , messageID ){
+  try {
+    console.log(messageID)
+    console.log(message)
+    if (message.includes("localhost") || message.includes("https"))
+    {
+      await client.guilds.cache.get(serverID).channels.cache.get(channel_ID).send
+      ({ content: String(message) , reply: { messageReference: messageID }});
+    
+    }
+    else{
+    await client.guilds.cache.get(serverID).channels.cache.get(channel_ID).send
+    ({ content: String("```\n" + message  + "\n```") , reply: { messageReference: messageID }});
+  } 
+}catch (error) {
+    console.log(error);
+  }
 
-module.exports = { toDiscordChat };
+}
+
+
+module.exports = { toDiscordChat , toReplyUser};
