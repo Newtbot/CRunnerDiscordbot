@@ -34,7 +34,7 @@ node bot.js
 @<mention bot>
 ```py
 print("test")
-```
+```'
 
 # Customization
 Feel free to customize the bot to suit your specific needs. You can:
