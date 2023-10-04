@@ -24,6 +24,8 @@ module.exports = {
 			const regex = new RegExp(/^a...s$/);
 			console.log(regex.test('alias')); //
 			*/
+
+			
 			const codeBlockRegex = /```(\w+)\n([\s\S]+?)\n```/;
 			const hasRegex = codeBlockRegex.exec(message.content);
 			const MentionBot = message.mentions.has(client.user)

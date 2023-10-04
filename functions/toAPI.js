@@ -53,8 +53,7 @@ async function toAPI(lang,code){
             //console.log(error.response.data); //html output
             //console.log(error.response.status); //status code 
             //console.log(error.response.headers); //http status header
-            toDiscordChat("Error Code: " + error.response.status)
-            toDiscordChat(error.response.statusText)
+            toDiscordChat("https://http.cat/" + error.response.status)
 
         }
         else if (error.request) {
