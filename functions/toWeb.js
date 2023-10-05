@@ -28,7 +28,6 @@ app.get("/output/:random_output_id", (req, res) => {
 	}
 });
 
-app.get("/service/")
 
 app.listen(port, () => {
 	console.log(`app listening on port ${port}`);

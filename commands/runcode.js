@@ -29,11 +29,29 @@ module.exports = {
         echo "cHJpbnQoImhlbGxvIG5vb3QiKQo="|base64 --decode| python3
         that is your code to send to the API 
         */
+		const LangMAP = [
+			{py : "python3"},
+			{js : "node"},
+			{c : "gcc -xc -o run1 - && ./run1"},
+			{bash : "bash"}
+		]
 
 		try {
 			let code = interaction.options.getString("argument");
 			let lang = interaction.options.getString("langauge");
 
+			const langMap = new Map();
+
+			LangMAP.forEach(entry => {
+				const key = Object.keys(entry)[0] //py
+				const value = entry[key]; // Get the corresponding value accordingly like py -> python3
+				langMap.set(key, value); // Add the entry to the Map
+
+			})
+
+			lang = (langMap.get(hasRegex[1])) //python3
+			console.log(lang)
+			
 			//base64 encoding of code
 			const base64 = btoa(code);
 

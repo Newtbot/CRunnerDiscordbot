@@ -21,12 +21,3 @@ module.exports = {
 
     }
     };
-
-
-
-/* 
-const { execSync } = require('child_process');
-const commandOutput = execSync('tail /var/log/syslog', { encoding: 'utf-8' });
-console.log(commandOutput);
-
-*/
