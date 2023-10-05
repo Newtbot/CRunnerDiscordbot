@@ -6,7 +6,7 @@ const { toAPI } = require("../../functions/toAPI.js");
 const LangMAP = [
 	{py : "python3"},
 	{js : "node"},
-	{C : "gcc -xc -o run1 - && ./run1"},
+	{c : "gcc -xc -o run1 - && ./run1"},
 	{bash : "bash"}
 ]
 
@@ -26,7 +26,7 @@ module.exports = {
 			*/
 
 			
-			const codeBlockRegex = /```(\w+)\n([\s\S]+?)\n```/;
+			const codeBlockRegex = /```(\w+)\n([\s\S]+?)```/;
 			const hasRegex = codeBlockRegex.exec(message.content);
 			const MentionBot = message.mentions.has(client.user)
 
@@ -50,15 +50,11 @@ module.exports = {
 					// passess message.id
 					let messageID = message.id;
 					toAPI(lang , code , messageID)
-					
 
-
-
-			
 			}
 			else if(MentionBot) 
 				//toDiscordChat("**Please use proper MARKDOWN and mention the bot**")
-				toReplyUser("**Please use proper MARKDOWN and mention the bot**" , message.id)
+				toReplyUser("**Please use proper MARKDOWN and mention the bot. The format is **" + "https://shorturl.at/dnFP6" , message.id)
 				return;
 		
 		} catch (error) {

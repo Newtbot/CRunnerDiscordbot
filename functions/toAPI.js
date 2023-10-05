@@ -26,7 +26,7 @@ async function toAPI(lang,code,messageID){
 
     //axios post to API
 
-    let response = await axios.post(url, {
+    let response = await axios.post(dev_url, {
         code: APIpayload,
     });
 
@@ -40,7 +40,7 @@ async function toAPI(lang,code,messageID){
     {
         let key = toWeb(decode)
         //toDiscordChat(dev_web_url + key )
-        toReplyUser(web_url + key , messageID)
+        toReplyUser(dev_web_url + key , messageID)
     }
     else if (decode){
     //toDiscordChat("```\n" + decode + "\n```")
@@ -49,7 +49,7 @@ async function toAPI(lang,code,messageID){
     //empty res 
     else{
         //toDiscordChat("```\n" + "empty output, but do not have any errors to report." + "\n```")
-        toReplyUser("```\n" + "empty output, but do not have any errors to report." + "\n```" , messageID)
+        toReplyUser("```\n" + "empty output, but do not have any errors to report." , messageID)
 
     }
     }
