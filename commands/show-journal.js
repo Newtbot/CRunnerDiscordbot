@@ -11,7 +11,7 @@ module.exports = {
     .setDescription('shows prod service journal logs'),
     async execute(interaction) {        
         try{
-            const journaloutput = execSync('journalctl -u CrunnerDiscordBot.service -n 10', { encoding: 'utf-8' });
+            const journaloutput = execSync('journalctl -u CrunnerDiscordBot.service -n 15', { encoding: 'utf-8' });
             await interaction.reply(journaloutput)
         }
         catch(error){
