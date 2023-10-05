@@ -30,10 +30,9 @@ To set up the bot, follow these steps:
 1. Start the bot using the provided service file or by running:
 node bot.js
 
+```
 # Bot Commands
-@<mention bot>
-```py
-print("test")```
+(https://shorturl.at/dnFP6)
 
 
 # Customization
