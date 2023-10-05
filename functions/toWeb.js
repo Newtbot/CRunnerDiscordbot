@@ -27,7 +27,8 @@ app.get("/output/:random_output_id", (req, res) => {
 		res.send(outputMap[req.params.random_output_id]);
 	}
 });
-//http://localhost/output/<random_string> for testing
+
+app.get("/service/")
 
 app.listen(port, () => {
 	console.log(`app listening on port ${port}`);
