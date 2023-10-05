@@ -12,7 +12,7 @@ module.exports = {
     async execute(interaction) {        
         try{
             const journaloutput = execSync('journalctl -u CrunnerDiscordBot.service -n 15', { encoding: 'utf-8' });
-            await interaction.reply("```journaloutput```")
+            await interaction.reply("```" + journaloutput  + "```")
         }
         catch(error){
           console.log(error)
