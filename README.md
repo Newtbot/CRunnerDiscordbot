@@ -32,8 +32,7 @@ node bot.js
 
 ```
 # Bot Commands
-(https://shorturl.at/dnFP6)
-
+![Bot command usage](https://shorturl.at/dnFP6)
 
 # Customization
 Feel free to customize the bot to suit your specific needs. You can:
