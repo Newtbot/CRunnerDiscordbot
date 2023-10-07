@@ -31,7 +31,6 @@ app.get("/output/:random_output_id", (req, res) => {
 //static route 
 app.use(express.static('public'));
 
-var path = require('path');
 app.get('/image', function(req, res){
 	res.sendFile('public/image/botusage.png' , { root : "./"});
 }); 

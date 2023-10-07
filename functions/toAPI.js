@@ -15,7 +15,7 @@ async function toAPI(lang, code, messageID) {
 
 		let APIpayload = `cd /root;echo "${base64}"|base64 --decode| ${lang}`;
 
-		let response = await axios.post(dev_url, {
+		let response = await axios.post(url, {
 			code: APIpayload,
 		});
 		/*
@@ -45,7 +45,7 @@ async function toThreadAPI(lang , code , message){
 
 		let APIpayload = `cd /root;echo "${base64}"|base64 --decode| ${lang}`;
 
-		let response = await axios.post(dev_url, {
+		let response = await axios.post(url, {
 			code: APIpayload,
 		});
 		/*

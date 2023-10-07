@@ -60,7 +60,7 @@ module.exports = {
 			}
 			else if(MentionBot) 
 				//toDiscordChat("**Please use proper MARKDOWN and mention the bot**")
-				toReplyUser("**Please use proper MARKDOWN and mention the bot. The format is **" + "https://shorturl.at/dnFP6" , message.id)
+				toReplyUser("**Please use proper MARKDOWN and mention the bot. The format is **" + "https://discord.718it.codeland.us/image/" , message.id)
 				return;
 		
 		} catch (error) {

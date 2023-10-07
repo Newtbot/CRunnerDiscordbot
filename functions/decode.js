@@ -13,7 +13,7 @@ async function decodes(data, messageID) {
 			//key is the ouput we are passing to toweb func
 			let key = toWeb(decode);
 			//toDiscordChat(dev_web_url + key )
-			toReplyUser(dev_web_url + key, messageID);
+			toReplyUser(web_url + key, messageID);
 		} else if (decode) {
 			//toDiscordChat("```\n" + decode + "\n```")
 			toReplyUser(decode, messageID);
@@ -52,7 +52,7 @@ async function decodesthread(data, message) {
 			//key is the ouput we are passing to toweb func
 			let key = toWeb(decode);
 			//toDiscordChat(dev_web_url + key )
-			message.rely(dev_web_url + key)
+			message.rely(web_url + key)
 		} else if (decode) {
 			//toDiscordChat("```\n" + decode + "\n```")
             message.reply("```\n" + decode + "\n```")
