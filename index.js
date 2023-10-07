@@ -9,4 +9,6 @@ const discordbothandler = require("./modules/DiscordBotHandler.js")
 //call the function DiscordbotHandler
 discordbothandler.start()
 
+
+
 client.login(process.env.TOKEN)

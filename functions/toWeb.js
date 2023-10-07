@@ -5,7 +5,7 @@ const port = 3000;
 
 const outputMap = {};
 
-function toWeb(decode) {
+function toWeb(decode , error) {
 	//random id generator
 	let random_output_id = Math.random().toString(36).substring(2, 12);
 	setTimeout(
@@ -28,6 +28,13 @@ app.get("/output/:random_output_id", (req, res) => {
 	}
 });
 
+//static route 
+app.use(express.static('public'));
+
+var path = require('path');
+app.get('/image', function(req, res){
+	res.sendFile('public/image/botusage.png' , { root : "./"});
+}); 
 
 app.listen(port, () => {
 	console.log(`app listening on port ${port}`);
@@ -45,3 +52,7 @@ const outputMapAdd(output){
     return random_output_id
   }
 */
+
+
+
+
