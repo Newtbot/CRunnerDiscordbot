@@ -13,15 +13,20 @@ module.exports = {
     .setName('show-all-runner') // no caps at beginning
     .setDescription('get all runners'),
     async execute(interaction) {        
-        try{
-            if (interaction){
-                let response = await axios.get(url)
-                let json = JSON.stringify(response.data, null, 2); // 2 spaces for indentation
-                await interaction.reply(`\`\`\`json\n${json}\n\`\`\``);
-                
-            }
-        }
-        catch(error){
+        try {
+            const response = await axios.get(url);
+            const runners = response.data.runners.slice(0, 35); // Get the first 10 items
+        
+            // Create a formatted message
+            let message = '```';
+            runners.forEach(runner => {
+                message += `Name: ${runner.name}, Last Status: ${runner.lastStatus}\n`;
+            });
+            message += '```';
+        
+            await interaction.reply({ content: message });
+        } 
+       catch(error){
             //axios 
             if (error.response)
             {
@@ -32,6 +37,10 @@ module.exports = {
                 await interaction.reply("https://http.cat/" + error.response.status)
     
             }
+            else{
+                console.log(error)
+            }
+
         }
 
     }
