@@ -32,7 +32,7 @@ node bot.js
 
 ```
 # Bot Commands
-![Bot command usage](https://shorturl.at/dnFP6)
+![Bot command usage]([https://shorturl.at/dnFP6](https://discord.718it.codeland.us/image/))
 
 # Customization
 Feel free to customize the bot to suit your specific needs. You can:
