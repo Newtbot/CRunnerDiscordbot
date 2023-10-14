@@ -14,8 +14,8 @@ const LangMAP = [
 	{markdown : "pandoc -f markdown -t html"},
 	{rust : "rustc -o run1 - && ./run1"},
 	{perl : "perl"},
-	{brainfuck : "> /tmp/br.run; bf /tmp/br.run"},
-	{golang : "> /tmp/run.go; go run /tmp/run.go"},
+	{brainfuck : "/tmp/br.run; bf /tmp/br.run"},
+	{golang : "/tmp/run.go; go run /tmp/run.go"},
 ]
 
 module.exports = {
