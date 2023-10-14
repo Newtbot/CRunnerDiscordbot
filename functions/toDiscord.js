@@ -83,10 +83,8 @@ function toDiscordChat(msg) {
 					const channel = await client.channels.fetch('1155491452009320570');
 					channel.send({ content: 'content', reply: { messageReference: message.id }}); // Message id 
 */
-async function toReplyUser(message , messageID ){
+async function toReplyUser(message , ms ,messageID ){
   try {
-    console.log(messageID)
-    console.log(message)
     if (message.includes("localhost") || message.includes("https"))
     {
       await client.guilds.cache.get(serverID).channels.cache.get(channel_ID).send
@@ -95,7 +93,8 @@ async function toReplyUser(message , messageID ){
     }
     else{
     await client.guilds.cache.get(serverID).channels.cache.get(channel_ID).send
-    ({ content: String("```\n" + message  + "\n```") , reply: { messageReference: messageID }});
+    ({ content: String("```\n" + "Result: " + message + "Time taken: " + ms +"ms" + "\n```") , reply: { messageReference: messageID }});
+
   } 
 }catch (error) {
     console.log(error);

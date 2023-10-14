@@ -19,7 +19,8 @@ async function toAPI(lang, code, messageID) {
         pass res to another function to seperate logic and api  
         */
 		let data = response.data.res;
-		decodes(data, messageID);
+		let ms = response.data.duration
+		decodes(data , ms , messageID);
 	} catch (error) {
 		if (error.response) {
 			toDiscordChat("https://http.cat/" + error.response.status);
@@ -49,7 +50,8 @@ async function toThreadAPI(lang , code , message){
         pass res to another function to seperate logic and api  
         */
 		let data = response.data.res;
-		decodesthread(data, message);
+		let ms = response.data.duration
+		decodesthread(data, ms, message);
 
 	} catch (error) {
 		if (error.response) {

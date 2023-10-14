@@ -5,7 +5,7 @@ const { toWeb } = require("../functions/toWeb.js");
 const dev_web_url = process.env.DEV_WEB_URL;
 const web_url = process.env.WEB_URL;
 
-async function decodes(data, messageID) {
+async function decodes(data, ms , messageID) {
 	try {
 		//decode base64 and retun it
 		const decode = atob(data);
@@ -16,13 +16,10 @@ async function decodes(data, messageID) {
 			toReplyUser(web_url + key, messageID);
 		} else if (decode) {
 			//toDiscordChat("```\n" + decode + "\n```")
-			toReplyUser(decode, messageID);
+			toReplyUser(decode , ms , messageID);
 		} else {
 			//toDiscordChat("```\n" + "empty output, but do not have any errors to report." + "\n```")
-			toReplyUser(
-				"empty output, but do not have any errors to report.",
-				messageID
-			);
+			toReplyUser("empty output, but do not have any errors to report.",messageID);
 		}
 	} catch (error) {
 		//axios
@@ -44,7 +41,7 @@ async function decodes(data, messageID) {
 	}
 }
 
-async function decodesthread(data, message) {
+async function decodesthread(data, ms , message) {
 	try {
 		//decode base64 and retun it
 		const decode = atob(data);
@@ -55,7 +52,8 @@ async function decodesthread(data, message) {
 			message.rely(web_url + key)
 		} else if (decode) {
 			//toDiscordChat("```\n" + decode + "\n```")
-            message.reply("```\n" + decode + "\n```")
+			//			toReplyUser(decode , ms , messageID);
+            message.reply("```\n" + "Result: " + decode + "Time taken: " + ms +"ms" + "\n```")
 		} else {
             message.reply("empty output, but do not have any errors to report.")
 		}
