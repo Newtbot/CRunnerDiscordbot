@@ -1,7 +1,6 @@
 require('dotenv').config();
 const serverID = process.env.GUILD_ID;
 const channel_ID = process.env.CHANNEL_ID;
-const e = require('express');
 const { client } = require('../modules/discordBot');
 
 

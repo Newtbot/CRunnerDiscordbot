@@ -2,10 +2,7 @@ const axios = require("axios");
 require("dotenv").config();
 const url = process.env.API_URL;
 const dev_url = process.env.DEV_API_URL;
-const web_url = process.env.WEB_URL;
-const dev_web_url = process.env.DEV_WEB_URL;
 const { toDiscordChat, toReplyUser } = require("../functions/toDiscord.js");
-const { toWeb } = require("../functions/toWeb.js");
 const { decodes , decodesthread } = require("../functions/decode.js");
 
 async function toAPI(lang, code, messageID) {
