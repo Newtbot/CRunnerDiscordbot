@@ -93,7 +93,7 @@ async function toReplyUser(message , ms ,messageID ){
     }
     else{
     await client.guilds.cache.get(serverID).channels.cache.get(channel_ID).send
-    ({ content: String("```\n" + "Result: " + message + "Time taken: " + ms +"ms" + "\n```") , reply: { messageReference: messageID }});
+    ({ content: String("```\n" + message + "Time taken: " + ms +"ms" + "\n```") , reply: { messageReference: messageID }});
 
   } 
 }catch (error) {

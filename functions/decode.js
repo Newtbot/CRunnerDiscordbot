@@ -53,7 +53,7 @@ async function decodesthread(data, ms , message) {
 		} else if (decode) {
 			//toDiscordChat("```\n" + decode + "\n```")
 			//			toReplyUser(decode , ms , messageID);
-            message.reply("```\n" + "Result: " + decode + "Time taken: " + ms +"ms" + "\n```")
+            message.reply("```\n" + decode + "Time taken: " + ms +"ms" + "\n```")
 		} else {
             message.reply("empty output, but do not have any errors to report.")
 		}
